@@ -3,22 +3,34 @@ const readline = require("readline").createInterface({
   output: process.stdout
 });
 
-let god_options = ['athena', 'zeus', 'imhotep'];
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
+
+const god_data = require('./data.js');
+
+let god_options = ['guan yu', 'pagu', 'jade emperor'];
 let god = '';
 
-readline.setPrompt('Welcome to the god module. Enter the name of a god. The options are Athena, Zeus and Imhotep. They will tell you some wisdom for the day...\n\n');
+console.log('Welcome to the God Module...\n\n');
+
+readline.setPrompt('Enter the name of a god. The options are Guan Yu, Pagu and Jade Emperor. They will tell you some wisdom for the day...\n\n');
 
 readline.prompt();
 
 readline.on(`line`, function(input) {
   input = input.toLowerCase().trim();
   if (!(god_options.includes(input))) {
-    console.log('\n\nIncorrect input, select from the list or press CNTRL+C to exit\n\n');
+    console.log('\n\nIncorrect input, type in one of the names from the list or press CNTRL+C to exit\n\n');
     readline.prompt();
-  } else {
-    god = input;
-    console.log(god);
-    console.log(`Input was Correct`);
-    readline.close();
   };
+  if (input === 'guan yu'){
+    console.log('\n\n' + god_data.guan_Yu[getRandomInt(0,2)]);
+    console.log('Take that wisdom to heart...You can keep receiving wisdom forever... Press CNTRL + C to quit when you\'ve had enough...\n\n');
+    readline.prompt();
+  };
+readline.close();
 });
