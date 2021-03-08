@@ -12,12 +12,12 @@ function getRandomInt(min, max) {
 
 const god_data = require('./data.js');
 
-let god_options = ['guan yu', 'pagu', 'jade emperor'];
+let god_options = ['guan yu', 'pangu', 'jade emperor'];
 let god = '';
 
 console.log('Welcome to the God Module...\n\n');
 
-readline.setPrompt('Enter the name of a god. The options are Guan Yu, Pagu and Jade Emperor. They will tell you some wisdom for the day...Press CNTRL + C to quit when you\'ve had enough...\n\n');
+readline.setPrompt('Enter the name of a god. The options are Guan Yu, Pangu and Jade Emperor. They will tell you some wisdom for the day...Press CNTRL + C to quit when you\'ve had enough...\n\n');
 
 readline.prompt();
 
@@ -33,8 +33,8 @@ readline.on(`line`, function(input) {
     console.log('\n\nTake that wisdom to heart...You can keep receiving wisdom forever... \n\n');
     readline.prompt();
   };
-  if (input === 'pagu'){
-    console.log('\n\n' + god_data.pagu[getRandomInt(0,2)]);
+  if (input === 'pangu'){
+    console.log('\n\n' + god_data.pangu[getRandomInt(0,2)]);
     console.log('\n\nTake that wisdom to heart...You can keep receiving wisdom forever... \n\n');
     readline.prompt();
   };
